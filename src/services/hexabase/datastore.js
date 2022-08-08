@@ -1,4 +1,4 @@
-import axios from "axios";
+import { getHexabaseClient } from "./user";
 
 const getItems = async (applicationId, datastoreId, page, perPage) => {
   const params = {
@@ -6,28 +6,30 @@ const getItems = async (applicationId, datastoreId, page, perPage) => {
     per_page: perPage,
     use_display_id: true,
   };
-  const result = await axios.post(
-    `/linker-api/applications/${applicationId}/datastores/${datastoreId}/items/search`,
-    params
-  );
-  return result.data.items;
+  const client = await getHexabaseClient();
+  const result = await client.items.get(params, datastoreId, applicationId);
+  return result.dsItems.items;
 };
 
 const getItem = async (applicationId, datastoreId, itemId) => {
-  const result = await axios.get(
-    `/linker-api/applications/${applicationId}/datastores/${datastoreId}/items/details/${itemId}?format=map`
+  const client = await getHexabaseClient();
+  const response = await client.items.getItemDetail(
+    datastoreId,
+    itemId,
+    applicationId,
+    {
+      format: "map",
+    }
   );
-  return result.data.field_values;
+  return response.itemDetails.field_values;
 };
 
 const newItem = async (applicationId, datastoreId, item) => {
   const params = {
     item: item,
   };
-  await axios.post(
-    `/linker-api/applications/${applicationId}/datastores/${datastoreId}/items/new`,
-    params
-  );
+  const client = await getHexabaseClient();
+  return client.items.create(applicationId, datastoreId, params);
 };
 
 const updateItem = async (applicationId, datastoreId, itemId, item, revNo) => {
@@ -35,17 +37,13 @@ const updateItem = async (applicationId, datastoreId, itemId, item, revNo) => {
     item: item,
     rev_no: Number(revNo),
   };
-  await axios.post(
-    `/linker-api/applications/${applicationId}/datastores/${datastoreId}/items/edit/${itemId}`,
-    params
-  );
+  const client = await getHexabaseClient();
+  return client.items.update(applicationId, datastoreId, itemId, params);
 };
 
 const deleteItem = async (applicationId, datastoreId, itemId) => {
-  await axios.delete(
-    `/linker-api/applications/${applicationId}/datastores/${datastoreId}/items/delete/${itemId}`,
-    { data: {} }
-  );
+  const client = await getHexabaseClient();
+  return client.items.delete(applicationId, datastoreId, itemId, {});
 };
 
 const executeAction = async (
@@ -59,8 +57,12 @@ const executeAction = async (
     rev_no: Number(revNo),
     use_display_id: true,
   };
-  await axios.post(
-    `/linker-api/applications/${applicationId}/datastores/${datastoreId}/items/action/${itemId}/${actionId}`,
+  const client = await getHexabaseClient();
+  return client.items.execute(
+    applicationId,
+    datastoreId,
+    itemId,
+    actionId,
     params
   );
 };

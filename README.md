@@ -1,4 +1,4 @@
-# hexa-vue-example1
+# hexa-sdk-todo-example
 本リポジトリは、株式会社Hexabaseが提供するhexabase APIを利用したサンプルアプリケーションです。
 
 本アプリケーションは、Vue.jsを使用しています。
@@ -9,7 +9,7 @@
 
 ### ソースコードの取得
 ```
-git clone git@github.com:b-eee/hexa-vue-example1.git
+git clone git@github.com:b-eee/hexa-sdk-todo-example.git
 ```
 
 ### 実行に必要なパッケージの取得
@@ -25,7 +25,7 @@ npm run serve
 
 ## 詳細情報
 
-さらに詳しい実行方法は、[Vueサンプルの実行手順](https://github.com/b-eee/hexa-vue-example1/blob/develop/get_start.md)を参照してください。
+さらに詳しい実行方法は、[Vueサンプルの実行手順](https://github.com/b-eee/hexa-sdk-todo-example/blob/develop/get_start.md)を参照してください。
 
 
 ## License

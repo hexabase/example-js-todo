@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@hexabase/hexabase-js": "^1.0.11",
-    "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "vee-validate": "^3.3.7",
     "vue": "^2.6.11",

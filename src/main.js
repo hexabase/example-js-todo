@@ -3,9 +3,9 @@ import App from "@/App.vue";
 import router from "@/router";
 import store from "@/store";
 import vuetify from "@/plugins/vuetify";
-import interceptorsSetup from "@/services/http/interceptors";
+// import interceptorsSetup from "@/services/http/interceptors";
 
-interceptorsSetup();
+// interceptorsSetup();
 
 Vue.config.productionTip = false;
 

@@ -9,7 +9,7 @@
 
 ### ソースコードの取得
 ```
-git@github.com:hexabase/example-vue-todo.git
+git clone git@github.com:hexabase/example-vue-todo.git
 ```
 
 ### 実行に必要なパッケージの取得

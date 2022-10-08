@@ -1,4 +1,4 @@
-# example-vue-todo
+# example-js-todo
 本リポジトリは、株式会社Hexabaseが提供するhexabase APIを利用したサンプルアプリケーションです。
 
 本アプリケーションは、Vue.jsを使用しています。
@@ -9,7 +9,7 @@
 
 ### ソースコードの取得
 ```
-git clone git@github.com:hexabase/example-vue-todo.git
+git clone git@github.com:hexabase/example-js-todo.git
 ```
 
 ### 実行に必要なパッケージの取得
@@ -25,7 +25,7 @@ npm run serve
 
 ## 詳細情報
 
-さらに詳しい実行方法は、[Vueサンプルの実行手順](https://github.com/hexabase/example-vue-todo/blob/main/get_start.md)を参照してください。
+さらに詳しい実行方法は、[Vueサンプルの実行手順](https://github.com/hexabase/example-js-todo/blob/main/get_start.md)を参照してください。
 
 
 ## License
